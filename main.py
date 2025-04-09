@@ -24,3 +24,5 @@ random.shuffle(karty)
 odhalene = [False] * len(karty)
 otocene = []
 spojene = []
+hrac_narade = 1
+skore = {1: 0, 2: 0}
