@@ -15,3 +15,12 @@ cierna = (0, 0, 0)
 siva = (200, 200, 200)
 modra = (0, 0, 255)
 cervena = (255, 0, 0)
+
+screen = pygame.display.set_mode((width, heigh))
+pygame.display.set_caption("Pexeso")
+
+karty = list("AABBCCDDEEFFGGHH")
+random.shuffle(karty)
+odhalene = [False] * len(karty)
+otocene = []
+spojene = []
