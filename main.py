@@ -1,28 +1,24 @@
 import pygame
-import random
-import time
+from config import WIDTH, HEIGHT
+from game import Game
 
-pygame.init()
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("Pexeso")
 
-width, heigh = 600, 6
-velkost_pola = 4
-velkost_karty = width // velkost_pola
-font = pygame.font.Font(None, 72)
-maly_font = pygame.font.Font(None, 36)
+    game = Game(screen)
 
-biela = (255, 255, 255)
-cierna = (0, 0, 0)
-siva = (200, 200, 200)
-modra = (0, 0, 255)
-cervena = (255, 0, 0)
+    running = True
+    while running:
+        game.draw()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                game.handle_click(event.pos)
 
-screen = pygame.display.set_mode((width, heigh))
-pygame.display.set_caption("Pexeso")
+    pygame.quit()
 
-karty = list("AABBCCDDEEFFGGHH")
-random.shuffle(karty)
-odhalene = [False] * len(karty)
-otocene = []
-spojene = []
-hrac_narade = 1
-skore = {1: 0, 2: 0}
+if __name__ == "__main__":
+    main()
